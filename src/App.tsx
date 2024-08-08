@@ -5,6 +5,8 @@ import Dashboard from './pages/dashboard/Dashboard';
 import Home from './pages/home/Home';
 import Register from './pages/auths/Register';
 import Login from './pages/auths/Login';
+import UserProfile from './pages/userprofile/UserProfile';
+import Onboarding from './pages/onboarding/Onboarding';
 
 export {
   Register,
@@ -13,5 +15,7 @@ export {
   Root,
   MainLayouts,
   Dashboard,
-  Home
+  Home,
+  UserProfile,
+  Onboarding,
 }

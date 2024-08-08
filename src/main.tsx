@@ -17,27 +17,43 @@ import {
   Home,
   Register,
   Login,
+  UserProfile,
+  Onboarding,
 } from './App';
+import { AuthProvider } from './contexts/AuthContext';
+import ProtectedRoute from './components/protectedroutes/ProtectedRoute';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Root />} errorElement={<NotFoundPage />}>
-      <Route index element={<Dashboard />} />
 
       {/* Pages with header and footer */}
       <Route element={<MainLayouts />}>
         <Route path='/home' element={<Home/>} />
       </Route>
       
+      
+      {/* protected routes below */}
+      <Route index element={<ProtectedRoute>
+        <Dashboard/>
+      </ProtectedRoute>} />
+      <Route path='/user-profile' element={<ProtectedRoute>
+        <UserProfile/>
+      </ProtectedRoute>} />
+
+
       {/* all pages without header and footer */}
       <Route path='/register' element={<Register />} />
-      <Route path='/login' element={<Login/>}/>
+      <Route path='/login' element={<Login />} />
+      <Route path='/welcome' element={<Onboarding />} />
     </Route>
   )
 )
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <AuthProvider>
+     <RouterProvider router={router}/>
+    </AuthProvider>
   </React.StrictMode>,
 )

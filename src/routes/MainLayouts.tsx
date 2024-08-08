@@ -5,7 +5,7 @@ import Footer from '../components/footer/Footer'
 
 const MainLayouts = () => {
   return (
-      <div>
+      <div className='h-full'>
           <Header />
           <Outlet />
           <Footer/>
