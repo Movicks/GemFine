@@ -3,8 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useAuth } from '../../contexts/AuthContext';
 import { loginSchema } from '../../libs/schemas/AuthSchemas';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 type LoginFormInputs = {
   email: string;
@@ -13,7 +12,7 @@ type LoginFormInputs = {
 
 const Login: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>({
-    resolver: zodResolver(loginSchema)
+    resolver: zodResolver(loginSchema),
   });
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -41,7 +40,7 @@ const Login: React.FC = () => {
           {errors.password && <span>{errors.password.message}</span>}
         </div>
         <button type="submit">Login</button>
-        <Link to='/register'>To home</Link>
+        <Link to='/register'>Register Here</Link>
       </form>
     </section>
   );

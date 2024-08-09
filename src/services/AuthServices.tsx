@@ -1,5 +1,4 @@
-// src/services/authService.ts
-export const login = async (email: string, password: string) => {
+export const login = async (email: string, _password: string) => {
     // Simulate an API call
     return {
       user: { email },
@@ -8,7 +7,7 @@ export const login = async (email: string, password: string) => {
     };
   };
   
-  export const register = async (email: string, password: string, otherData: any) => {
+  export const register = async (email: string, _password: string, otherData: any) => {
     // Simulate an API call
     return {
       user: { email, ...otherData },
@@ -16,4 +15,3 @@ export const login = async (email: string, password: string) => {
       refreshToken: 'fake-refresh-token'
     };
   };
-  
