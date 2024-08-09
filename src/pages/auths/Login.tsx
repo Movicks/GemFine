@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useAuth } from '../../contexts/AuthContext';
@@ -17,9 +17,12 @@ const Login: React.FC = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  // Add a state to handle the remember me checkbox
+  const [rememberMe, setRememberMe] = useState(false);
+
   const onSubmit = async (data: LoginFormInputs) => {
     try {
-      await login(data.email, data.password);
+      await login(data.email, data.password, rememberMe); // Now passing the rememberMe value as well
       navigate('/');
     } catch (error) {
       console.error('Login failed', error);
@@ -38,6 +41,16 @@ const Login: React.FC = () => {
           <label>Password</label>
           <input type="password" {...register('password')} />
           {errors.password && <span>{errors.password.message}</span>}
+        </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
+            Remember Me
+          </label>
         </div>
         <button type="submit">Login</button>
         <Link to='/register'>Register Here</Link>
