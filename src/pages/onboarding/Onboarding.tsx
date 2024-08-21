@@ -5,10 +5,14 @@ import { IoLogoInstagram, IoLogoTiktok } from 'react-icons/io5';
 
 const Onboarding = () => {
   return (
-    <section className='relative flex items-center justify-center h-screen bg-redGradient overflow-hidden'>
-      <div className='flex flex-col justify-center items-center z-70 gap-9 w-full md:max-w-[30rem] shadow-custom py-[7rem] rounded-lg'>
-        <h1 className='text-white text-5xl'>UBA</h1>
-        <p className='text-gray-100 text-lg text-center'>
+    <section className='relative flex flex-col items-center justify-center h-screen bg-redGradient'>
+      <div className='Row-container absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-10 backdrop-blur-md z-50 gap-9 w-full md:max-w-[30rem] lg:max-w-[40rem] lg:w-full shadow-custom px-3 rounded-lg'>
+        <svg className='svg'>
+          <text x="50%" y="50%" dy=".35em" textAnchor="middle" className='text-7xl font-bold'>
+            UBA
+          </text>
+        </svg>
+        <p className='text-gray-100 text-lg text-center md:w-[25rem]'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
@@ -19,15 +23,15 @@ const Onboarding = () => {
           </div>
         </Link>
         <div className='Socials mt-5 flex items-center px-3 justify-between w-full max-w-[17rem]'>
-          <a href='https://' className='border-2 border-gray-200 p-1 rounded-full bg-black'><FaFacebookF className='text-2xl text-white rounded-full'/></a>
-          <a href='https://' className='border-2 border-gray-200 p-1 rounded-full bg-black'><BsTwitterX className='text-2xl text-white rounded-full'/></a>
-          <a href='https://' className='border-2 border-gray-200 p-1 rounded-full bg-black'><IoLogoInstagram className='text-2xl text-white rounded-full'/></a>
-          <a href='https://' className='border-2 border-gray-200 p-1 rounded-full bg-black'><IoLogoTiktok className='text-2xl text-white rounded-full'/></a>
+          <a href='https://facebook.com' className='border-2 border-gray-200 p-1 md:p-2 rounded-full bg-black'><FaFacebookF className='text-2xl text-white rounded-full'/></a>
+          <a href='https://twitter.com' className='border-2 border-gray-200 p-1 md:p-2 rounded-full bg-black'><BsTwitterX className='text-2xl text-white rounded-full'/></a>
+          <a href='https://instagram.com' className='border-2 border-gray-200 p-1 md:p-2 rounded-full bg-black'><IoLogoInstagram className='text-2xl text-white rounded-full'/></a>
+          <a href='https://tiktok.com' className='border-2 border-gray-200 p-1 md:p-2 rounded-full bg-black'><IoLogoTiktok className='text-2xl text-white rounded-full'/></a>
         </div>
       </div>
       <div className='bubbles-container absolute'>
         {[...Array(10)].map((_, i) => (
-          <div key={i} className='bubble absolute'></div>
+          <div key={i} className='bubble absolute flex items-center justify-center'></div>
         ))}
       </div>
     </section>
