@@ -6,29 +6,30 @@ body{
   margin: 0;
   padding: 0;
   height: 100vh;
+  background-color: #f2f8fc;
 }
 #root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  background-color: whitesmoke;
+/* 
+  color-scheme: light dark; */
+  background-color: #f2f8fc;
+  height: 100%;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
 }
-/* .bg-red-gradient {
-  background: linear-gradient(to right, #ef4444, #dc2626, #b91c1c);
-  clip-path: polygon(0 60%, 10% 65%, 20% 60%, 30% 65%, 40% 60%, 50% 65%, 60% 60%, 70% 65%, 80% 60%, 90% 65%, 100% 60%, 100% 100%, 0% 100%);
-} */
 
 h1{
   font-size: 4rem;
   font-weight: bolder;
+}
+
+input[type="checkbox"] {
+  background-color: #FFFFFF;
 }
 
 /* bubbles styles below */
@@ -75,3 +76,39 @@ h1{
   }
 }
 /* bubbles ends here */
+
+/* Uba styles */
+
+.svg {
+	width: 100%; 
+  height: 15%;
+}
+.svg>text {
+	animation: stroke 5s infinite alternate;
+	stroke-width: 2;
+	stroke: #FFFFFF;
+  letter-spacing: 1px;
+}
+@keyframes stroke {
+	0%   {
+		fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1);
+		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+	}
+	70%  {fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1); }
+	80%  {fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1); stroke-width: 5; }
+	100% {
+		fill: rgba(255,255,255,1); stroke: rgba(255,255,255,0);
+		stroke-dashoffset: -15%; stroke-dasharray: 100% 0; stroke-width: 0;
+	}
+}
+
+
+
+
+/* media query for smaller screens */
+@media(max-width: 700px){
+  .BottomFooter{
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+  }
+}
