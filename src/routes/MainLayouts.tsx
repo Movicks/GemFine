@@ -4,9 +4,12 @@ import PageHeader from '../components/header/PageHeader'
 
 const MainLayouts = () => {
   return (
-    <main className='h-full px-2'>
+    <main className='h-full'>
       <PageHeader title="Victor MovicX" />
-          <Outlet />
+      <div className='h-full px-2'>
+        <Outlet />
+      </div>
+          
     </main>
   )
 }

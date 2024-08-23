@@ -7,7 +7,7 @@ const SavingsBalance = () => {
           <MdOutlineEnergySavingsLeaf className='text-3xl text-red-500'/>
           <div className='flex flex-col gap-2'>
               <span className='text-md text-gray-500'>Total Saved</span>
-              <h1 className='text-[1.6rem]'>$900</h1>
+              <h1 className='text-[1.6rem] text-red-500'>$900</h1>
           </div>
     </div>
   )

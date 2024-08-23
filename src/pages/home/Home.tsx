@@ -10,8 +10,8 @@ import Savings from '../../components/savings/Savings';
 const Home = () => {
   return (
     <div className='h-auto lg:h-screen md-px-2 pb-4 flex flex-col'>
-          <div className='flex flex-col lg:flex-row lg:justify-between gap-5 bg-purple-500 h-auto'>
-              <section className='w-full flex flex-col gap-4 md:p-3'>
+          <div className='flex flex-col lg:flex-row lg:justify-between gap-3 h-auto'>
+              <section className='w-full flex flex-col gap-3 md:p-3'>
                   <section className='Section-1 w-full flex flex-col md:flex-row md:gap-4'>
                         <div className='cards-wrapper w-full flex flex-col md:flex-row gap-2 md:gap-4'>
                           <CurrentAmount />

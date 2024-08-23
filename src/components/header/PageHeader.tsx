@@ -8,7 +8,7 @@ type PageHeaderProps = {
 
 const PageHeader = ({ title }: PageHeaderProps) => {
   return (
-    <div className='py-2 md:py-4 px-2 flex items-center justify-between'>
+    <div className='sticky top-0 left-0 py-2 bg-[#f2f8fc] md:py-4 px-2 md:px-4 flex items-center justify-between'>
       <div className='flex gap-2 items-center'>
         <div className='w-[3.3rem] h-[3.3rem] min-w-[3.3rem] min-h-[3.3rem]  md:w-[4rem] md:h-[4rem] rounded-full border-2 p-1 border-red-500'>
           <img src='https://media.istockphoto.com/id/1178961032/photo/photo-of-funny-dark-skin-man-holding-telephone-advertising-new-model-smart-phone-indicating.jpg?s=612x612&w=0&k=20&c=H1g5dwymU1TaQAdi_72fjuYrl_a9w46Uz2XEy1aCSNw='
