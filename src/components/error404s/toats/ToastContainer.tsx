@@ -9,22 +9,20 @@ interface Toast {
     type: ToastType;
 }
 
-interface ToastContainerProps {}
-
 export interface ToastContainerHandle {
     addToast: (message: string, type: ToastType) => void;
 }
 
-const ToastContainer = forwardRef<ToastContainerHandle, ToastContainerProps>((props, ref) => {
+const ToastContainer = forwardRef<ToastContainerHandle>((_, ref) => {
     const [toasts, setToasts] = useState<Toast[]>([]);
 
     useImperativeHandle(ref, () => ({
         addToast(message: string, type: ToastType) {
             const id = new Date().getTime();
-            setToasts([...toasts, { id, message, type }]);
+            setToasts((currentToasts) => [...currentToasts, { id, message, type }]);
 
             setTimeout(() => {
-                setToasts(currentToasts => currentToasts.filter(toast => toast.id !== id));
+                setToasts((currentToasts) => currentToasts.filter((toast) => toast.id !== id));
             }, 3000); // Remove toast after 3 seconds
         }
     }));
