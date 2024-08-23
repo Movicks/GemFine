@@ -1,15 +1,13 @@
 import {} from 'react'
-import Header from '../components/header/Header'
 import { Outlet } from 'react-router-dom'
-import Footer from '../components/footer/Footer'
+import PageHeader from '../components/header/PageHeader'
 
 const MainLayouts = () => {
   return (
-      <div className='h-full'>
-          <Header />
+    <main className='h-full px-2'>
+      <PageHeader title="Victor MovicX" />
           <Outlet />
-          <Footer/>
-    </div>
+    </main>
   )
 }
 

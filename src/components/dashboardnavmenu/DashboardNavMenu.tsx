@@ -56,7 +56,7 @@ const DashboardNavMenu = ({ onWidthChange }: DashboardNavMenuProps) => {
   return (
     <div
       style={{ width: isMdScreen ? `${width}px` : '100%' }}
-      className='BottomFooter fixed bottom-0 h-[4.5rem] shadow-custom py-2 overflow-hidden w-full bg-white md:w-auto md:flex-col md:items-start md:fixed md:top-0 md:left-0 md:h-full'
+      className='BottomFooter fixed bottom-0 h-[4.5rem] shadow-custom py-2 md:pr-1 overflow-hidden w-full bg-white md:rounded-r-2xl md:w-auto md:flex-col md:items-start md:fixed md:top-0 md:left-0 md:h-full'
     >
       <div className='relative flex items-center md:pb-3 md:pl-4 justify-between md:max-h-[21rem] overflow-hidden w-full md:h-full md:flex-col md:items-start'>
         <NavLink

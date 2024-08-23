@@ -10,15 +10,15 @@ function Dashboard() {
   };
 
   return (
-    <div className='h-full flex relative'>
+    <div className='BottomFooter h-full flex relative'>
       <DashboardNavMenu onWidthChange={handleNavWidthChange} />
       <div 
-        className='flex-grow'
+        className='flex-grow BottomFooter2'
         style={{
           marginLeft: window.innerWidth >= 768 ? `${navWidth}px` : '0',
         }}
       >
-        <div>
+        <div className=''>
          <Outlet />
         </div>
       </div>

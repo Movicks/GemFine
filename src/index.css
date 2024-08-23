@@ -2,14 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   margin: 0;
   padding: 0;
   height: 100vh;
   background-color: #f2f8fc;
 }
+:root {
+  --page-margin: min(2rem, 0rem);;
+}
+
 #root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 /* 
@@ -102,7 +112,13 @@ input[type="checkbox"] {
 	}
 }
 
+.BottomFooter{
+  transition: width 0.2s ease-in-out;
+}
 
+/* .BottomFooter2{
+  transition: width 40s ease-in-out;
+} */
 
 
 /* media query for smaller screens */
@@ -111,4 +127,31 @@ input[type="checkbox"] {
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
   }
+  /* Scroll bar */
+  .Section-1 {
+    display: grid;
+    grid-template-columns: var(--page-margin) [center-start] 1fr [center-end] var(--page-margin);
+  }
+  
+  .Section-1 > * {
+    grid-column: center-start / center-end;
+  }
+  
+  .cards-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-right: var(--page-margin);
+    scroll-snap-type: x mandatory;
+  }
+  
+  .Card {
+    display: grid;
+    min-width: 20rem;
+    height: 7rem;
+    scroll-snap-align: start;
+    border: 2px solid rgba(255, 0, 0, 0.403);
+  }
+  
 }
