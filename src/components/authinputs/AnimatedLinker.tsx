@@ -16,7 +16,7 @@ const AnimatedLinker = () => {
   return (
     <div className='flex flex-col items-center justify-center'>
       <h1 className='text-[2.2rem] text-center mb-1'>Welcome</h1>
-      <p className='mb-3'>Hi, you need to signup or login to enter</p>
+      <p className='mb-3 text-gray-500'>Hi, you need to signup or login to enter</p>
       <div className='relative flex justify-between bg-red-200 border-2 border-red-300 rounded-full overflow-hidden w-[16rem]'>
         <NavLink
           to='/register'

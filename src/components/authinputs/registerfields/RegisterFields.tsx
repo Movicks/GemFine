@@ -61,7 +61,7 @@ const Registerfields: React.FC = () => {
                         <button type="submit" className='bg-redGradient border-2 border-red-300 py-2 shadow-custom mt-5 rounded-full text-white font-bold text-lg w-full'>Sign Up</button>
                     </form>
                     <div className='flex gap-2 w-full justify-center'>
-                        <span>Already have an account?</span>
+                        <span className='text-gray-500'>Already have an account?</span>
                         <Link to='/login' className='text-red-300'>Login</Link>
                     </div>
                 </>
