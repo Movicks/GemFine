@@ -148,8 +148,9 @@ input[type="checkbox"] {
   
   .Card {
     display: grid;
+    width: 100%;
     min-width: 21rem;
-    height: 7rem;
+    height: 8rem;
     scroll-snap-align: start;
     border: 2px solid rgba(255, 0, 0, 0.403);
   }

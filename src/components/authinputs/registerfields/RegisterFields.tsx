@@ -16,7 +16,7 @@ import ToastContainer, { ToastContainerHandle } from '../../error404s/toats/Toas
 type RegisterFormInputs = {
     firstName: string;
     lastName: string;
-    userName: string;
+    username: string;
     email: string;
     country: string;
     phone: string;
@@ -52,8 +52,8 @@ const Registerfields: React.FC = () => {
         else if (errors.lastName) {
             showErrorToast(errors.lastName.message);
         }
-        else if (errors.userName) {
-            showErrorToast(errors.userName.message);
+        else if (errors.username) {
+            showErrorToast(errors.username.message || 'Invalid username');
         }
         else if (errors.email) {
             showErrorToast(errors.email.message);
@@ -77,7 +77,7 @@ const Registerfields: React.FC = () => {
                 {
                     firstName: data.firstName,
                     lastName: data.lastName,
-                    userName: data.userName,
+                    userName: data.username,
                     country: data.country,
                     phone: data.phone,
                 },
