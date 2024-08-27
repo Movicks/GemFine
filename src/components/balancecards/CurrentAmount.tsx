@@ -9,8 +9,8 @@ const CurrentAmount = () => {
       subText='text-gray-200'
       balanceTitle='Current Balance'
       Balance='9,245'
-      SbtnStyles='w-[14rem] h-[2rem] bg-white shadow-custom rounded-full text-red-500 text-center'
-      SbtnContent={`+ Add Money`}
+      SbtnStyles='w-[14rem] h-[2rem] bg-black shadow-custom rounded-md text-gray-200 text-center'
+      SbtnContent={`+ Receive`}
     />
   )
 }

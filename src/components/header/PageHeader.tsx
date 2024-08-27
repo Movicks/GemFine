@@ -13,7 +13,8 @@ const PageHeader = ({ title }: PageHeaderProps) => {
         <div className='w-[3.3rem] h-[3.3rem] min-w-[3.3rem] min-h-[3.3rem]  md:w-[4rem] md:h-[4rem] rounded-full border-2 p-1 border-red-500'>
           <img src='https://media.istockphoto.com/id/1178961032/photo/photo-of-funny-dark-skin-man-holding-telephone-advertising-new-model-smart-phone-indicating.jpg?s=612x612&w=0&k=20&c=H1g5dwymU1TaQAdi_72fjuYrl_a9w46Uz2XEy1aCSNw='
             alt='user'
-            className='w-full h-full bg-cover object-cover bg-center rounded-full shadow-custom' />
+            className='w-full h-full bg-cover object-cover bg-center rounded-full shadow-custom'
+          />
         </div>
         <div className='h-[2.7rem] flex flex-col'>
           <p className='text-gray-500 text-sm md:text-md'>Good Morning,</p>
@@ -21,11 +22,11 @@ const PageHeader = ({ title }: PageHeaderProps) => {
         </div>
       </div>
       <div className='flex items-center gap-2'>
-        <button className='relative bg-gray-200 h-10 w-10 flex items-center justify-center p-1 rounded-full shadow-custon'>
+        <button className='relative bg-gray-200 h-10 w-10 flex items-center justify-center p-1 rounded-full md:rounded-lg shadow-custon'>
           <RiCustomerService2Line className='text-4xl text-gray-500'/>
-          <span className='absolute w-3 h-1 bg-red-500 top-6 rounded-full shadow-custon'></span>
+          <span className='absolute w-3 h-1 bg-red-500 top-[1.5rem] rounded-full shadow-custon'></span>
         </button>
-        <button className='relative bg-gray-200 h-10 w-10 flex items-center justify-center p-1 rounded-full shadow-custon'>
+        <button className='relative bg-gray-200 h-10 w-10 flex items-center justify-center p-1 rounded-full md:rounded-lg shadow-custon'>
           <IoNotificationsOutline className='text-4xl text-gray-500' />
           <span className='absolute w-2 h-2 bg-red-500 top-2 right-2 rounded-full shadow-custon'></span>
         </button>
