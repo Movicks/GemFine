@@ -18,7 +18,7 @@ function BalanceCard({ bgColor, textColor, subText, Balance, balanceTitle, SbtnS
       <div className='flex items-center justfy-between w-full min-w-[19.5rem] md:min-w-[16.5rem] pr-2 md:pr-0'>
         <span className={`${subText} text-md w-full`}>{balanceTitle}</span>
       </div>
-      <div className='flex items-center justfy-between w-full min-w-[13rem] md:min-w-[16.5rem] pr-2 md:pr-0'>
+      <div className='Content-container flex items-center justfy-between w-full min-w-[13rem] md:min-w-[16.5rem] pr-2 md:pr-0'>
         <h1 className={`text-[1.6rem] ${textColor} w-full`}>${Balance}</h1>
         <button className={`${SbtnStyles}`}>{SbtnContent}</button>
       </div>   
