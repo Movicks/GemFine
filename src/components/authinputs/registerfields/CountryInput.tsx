@@ -1,7 +1,7 @@
-import {} from 'react';
-import { useFormContext } from 'react-hook-form';
-import Select, { SingleValue } from 'react-select';
-import { RiMapPinUserLine } from 'react-icons/ri';
+import {} from "react";
+import { useFormContext } from "react-hook-form";
+import Select, { SingleValue } from "react-select";
+import { RiMapPinUserLine } from "react-icons/ri";
 
 type CountryOption = {
   value: string;
@@ -35,70 +35,76 @@ const CountryInput = () => {
   ];
 
   const handleCountryChange = (selectedOption: SingleValue<CountryOption>) => {
-    setValue('country', selectedOption ? selectedOption.value : '');
+    setValue("country", selectedOption ? selectedOption.value : "");
   };
 
   return (
-    <div className='flex flex-col gap-1 bg-transparent w-full'>
-      <label htmlFor="country" className='text-gray-600'>Country</label>
-      <div className='h-[2.8rem] border-2 border-red-300 flex items-center gap-3 px-4 rounded-full w-full md:max-w-[18rem] shadow-custom'>
-        <RiMapPinUserLine className='text-xl text-red-300' />
+    <div className="flex flex-col gap-1 bg-transparent w-full">
+      <label htmlFor="country" className="text-gray-600">
+        Country
+      </label>
+      <div className="h-[2.8rem] border-2 border-red-300 flex items-center gap-3 px-4 rounded-full w-full md:max-w-[18rem] shadow-custom">
+        <RiMapPinUserLine className="text-xl text-red-300" />
         <Select
-          id='country'
+          id="country"
           options={countries}
           onChange={handleCountryChange}
-          classNamePrefix='react-select'
+          classNamePrefix="react-select"
           placeholder="Country"
           isClearable
-          className='w-full bg-transparent outline-none text-gray-700'
+          className="w-full bg-transparent outline-none text-gray-700"
           styles={{
             control: (base, state) => ({
               ...base,
-              backgroundColor: 'transparent',
-              borderColor: state.isFocused ? 'none' : 'none', // focus, otherwise
-              boxShadow: state.isFocused ? '' : 'none', // Red-300 for focus
-              '&:hover': {
-                borderColor: 'none', // Red-300 on hover
+              backgroundColor: "transparent",
+              borderColor: state.isFocused ? "none" : "none", // focus, otherwise
+              boxShadow: state.isFocused ? "" : "none", // Red-300 for focus
+              "&:hover": {
+                borderColor: "none", // Red-300 on hover
               },
-              height: '100%',
-              display: 'flex',
-              alignItems: 'center',
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
             }),
             menu: (base) => ({
               ...base,
-              backgroundColor: '#fee2e2', // Red-200 for the dropdown menu
-              borderRadius: '0.375rem',
-              boxShadow: 'none', // Custom shadow
+              backgroundColor: "#fee2e2", // Red-200 for the dropdown menu
+              borderRadius: "0.375rem",
+              boxShadow: "none", // Custom shadow
             }),
             option: (base, state) => ({
               ...base,
-              backgroundColor: state.isSelected ? '#f87171' : state.isFocused ? '#fca5a5' : '#fee2e2', // Red-300 for selected, Red-200 for focused, Red-100 otherwise
-              color: state.isSelected ? '#fff' : '#4a4a4a', // White for selected, gray for others
-              '&:hover': {
-                backgroundColor: '#fca5a5', // Red-200 on hover
+              backgroundColor: state.isSelected
+                ? "#f87171"
+                : state.isFocused
+                  ? "#fca5a5"
+                  : "#fee2e2", // Red-300 for selected, Red-200 for focused, Red-100 otherwise
+              color: state.isSelected ? "#fff" : "#4a4a4a", // White for selected, gray for others
+              "&:hover": {
+                backgroundColor: "#fca5a5", // Red-200 on hover
               },
             }),
             singleValue: (base) => ({
               ...base,
-              color: '#4a4a4a', // Gray-700 for selected value
+              color: "#4a4a4a", // Gray-700 for selected value
             }),
             placeholder: (base) => ({
               ...base,
-              color: 'gray', // gray for placeholder text
+              color: "gray", // gray for placeholder text
             }),
             dropdownIndicator: (base) => ({
               ...base,
-              color: '#f87171', // Red-300 for dropdown indicator
+              color: "#f87171", // Red-300 for dropdown indicator
             }),
             clearIndicator: (base) => ({
               ...base,
-              color: '#f87171', // Red-300 for clear indicator
+              color: "#f87171", // Red-300 for clear indicator
             }),
           }}
         />
       </div>
     </div>
   );
-}
+};
 
 export default CountryInput;

@@ -1,6 +1,6 @@
-import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
-import DashboardNavMenu from './../../components/dashboardnavmenu/DashboardNavMenu';
+import { Outlet } from "react-router-dom";
+import { useState } from "react";
+import DashboardNavMenu from "./../../components/dashboardnavmenu/DashboardNavMenu";
 
 function Dashboard() {
   const [navWidth, setNavWidth] = useState<number>(80); // Default width 5rem in pixels
@@ -10,16 +10,16 @@ function Dashboard() {
   };
 
   return (
-    <div className='BottomFooter h-full flex relative'>
+    <div className="BottomFooter h-full flex relative">
       <DashboardNavMenu onWidthChange={handleNavWidthChange} />
-      <div 
-        className='flex-grow BottomFooter2'
+      <div
+        className="flex-grow BottomFooter2"
         style={{
-          marginLeft: window.innerWidth >= 768 ? `${navWidth}px` : '0',
+          marginLeft: window.innerWidth >= 768 ? `${navWidth}px` : "0",
         }}
       >
-        <div className=''>
-         <Outlet />
+        <div className="fade-in h-full">
+          <Outlet />
         </div>
       </div>
     </div>

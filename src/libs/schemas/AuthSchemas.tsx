@@ -1,4 +1,4 @@
-import * as z from 'zod';
+import * as z from "zod";
 
 const usernameRegex = /^[a-zA-Z0-9_]{3,15}$/;
 const phoneSchema = z
@@ -29,31 +29,59 @@ const emailSchema = z
 export const registerSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
-  username: z.string()
+  username: z
+    .string()
     .min(3, "Username must be at least 3 characters")
     .max(15, "Username must be at most 20 characters")
-    .regex(usernameRegex, "Username can only contain letters, numbers, and underscores"),
+    .regex(
+      usernameRegex,
+      "Username can only contain letters, numbers, and underscores",
+    ),
   email: emailSchema,
   country: z.string(),
   phone: phoneSchema,
-  password: z.string()
+  password: z
+    .string()
     .min(8, "Password must be at least 8 characters long")
-    .regex(uppercaseRegex, "Password must include at least one uppercase letter")
-    .regex(lowercaseRegex, "Password must include at least one lowercase letter")
+    .regex(
+      uppercaseRegex,
+      "Password must include at least one uppercase letter",
+    )
+    .regex(
+      lowercaseRegex,
+      "Password must include at least one lowercase letter",
+    )
     .regex(digitRegex, "Password must include at least one digit")
-    .regex(specialCharRegex, "Password must include at least one special character (@$!%*?&)"),
+    .regex(
+      specialCharRegex,
+      "Password must include at least one special character (@$!%*?&)",
+    ),
 });
 
 export const loginSchema = z.object({
-  username: z.string()
+  username: z
+    .string()
     .min(3, "Username must be at least 3 characters")
     .max(20, "Username must be at most 20 characters")
-    .regex(usernameRegex, "Username can only contain letters, numbers, and underscores"),
-  password: z.string()
+    .regex(
+      usernameRegex,
+      "Username can only contain letters, numbers, and underscores",
+    ),
+  password: z
+    .string()
     .min(8, "Password must be at least 8 characters long")
-    .regex(uppercaseRegex, "Password must include at least one uppercase letter")
-    .regex(lowercaseRegex, "Password must include at least one lowercase letter")
+    .regex(
+      uppercaseRegex,
+      "Password must include at least one uppercase letter",
+    )
+    .regex(
+      lowercaseRegex,
+      "Password must include at least one lowercase letter",
+    )
     .regex(digitRegex, "Password must include at least one digit")
-    .regex(specialCharRegex, "Password must include at least one special character (@$!%*?&)"),
+    .regex(
+      specialCharRegex,
+      "Password must include at least one special character (@$!%*?&)",
+    ),
   fingerprintLogin: z.boolean().optional(),
 });

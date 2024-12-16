@@ -2,7 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+
+/* Placeholder styling for inputs with the class .custom-input */
+.custom-input::placeholder {
+  color: #c0c0c0 !important;
+  opacity: 1 !important;
+}
+
+/* Remove outline when input is focused */
+.custom-input:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+/* Make sure no styles are applied on focus, hover, or active */
+.custom-input:focus,
+.custom-input:hover,
+.custom-input:active {
+  outline: none !important;
+  border: 0 !important;
+}
+
+/* General input styling */
+.custom-input {
+  background-color: transparent !important;
+  outline: none !important;
+  border: 0 !important;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.9s ease-in;
+}
 
 html {
   font-size: 100%;
@@ -21,7 +61,7 @@ body {
 }
 
 #root {
-  font-family: "Poppins", sans-serif;
+  font-family: sans-serif;
   line-height: 1.5;
   font-weight: 400;
   background-color: transparent;
@@ -38,7 +78,7 @@ h1 {
 }
 
 input[type="checkbox"] {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 /* Bubble styles */
@@ -63,16 +103,56 @@ input[type="checkbox"] {
   opacity: 0.8;
 }
 
-.bubble:nth-child(1) { left: 10%; animation-duration: 8s; width: 60px; height: 60px; }
-.bubble:nth-child(2) { left: 20%; animation-duration: 12s; }
-.bubble:nth-child(3) { left: 30%; animation-duration: 10s; width: 80px; height: 80px; }
-.bubble:nth-child(4) { left: 40%; animation-duration: 14s; }
-.bubble:nth-child(5) { left: 50%; animation-duration: 9s; width: 100px; height: 100px; }
-.bubble:nth-child(6) { left: 60%; animation-duration: 13s; }
-.bubble:nth-child(7) { left: 70%; animation-duration: 11s; width: 70px; height: 70px; }
-.bubble:nth-child(8) { left: 80%; animation-duration: 15s; }
-.bubble:nth-child(9) { left: 90%; animation-duration: 12s; }
-.bubble:nth-child(10) { left: 100%; animation-duration: 10s; width: 50px; height: 50px; }
+.bubble:nth-child(1) {
+  left: 10%;
+  animation-duration: 8s;
+  width: 60px;
+  height: 60px;
+}
+.bubble:nth-child(2) {
+  left: 20%;
+  animation-duration: 12s;
+}
+.bubble:nth-child(3) {
+  left: 30%;
+  animation-duration: 10s;
+  width: 80px;
+  height: 80px;
+}
+.bubble:nth-child(4) {
+  left: 40%;
+  animation-duration: 14s;
+}
+.bubble:nth-child(5) {
+  left: 50%;
+  animation-duration: 9s;
+  width: 100px;
+  height: 100px;
+}
+.bubble:nth-child(6) {
+  left: 60%;
+  animation-duration: 13s;
+}
+.bubble:nth-child(7) {
+  left: 70%;
+  animation-duration: 11s;
+  width: 70px;
+  height: 70px;
+}
+.bubble:nth-child(8) {
+  left: 80%;
+  animation-duration: 15s;
+}
+.bubble:nth-child(9) {
+  left: 90%;
+  animation-duration: 12s;
+}
+.bubble:nth-child(10) {
+  left: 100%;
+  animation-duration: 10s;
+  width: 50px;
+  height: 50px;
+}
 
 @keyframes rise {
   0% {
@@ -94,7 +174,7 @@ input[type="checkbox"] {
 .svg > text {
   animation: stroke 5s infinite alternate;
   stroke-width: 2;
-  stroke: #FFFFFF;
+  stroke: #ffffff;
   letter-spacing: 1px;
 }
 
@@ -129,15 +209,12 @@ input[type="checkbox"] {
 }
 
 /* Media queries */
-@media (max-width: 700px) {
-  .BottomFooter {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-
+@media (max-width: 884px) {
   .Section-1 {
     display: grid;
-    grid-template-columns: var(--page-margin) [center-start] 1fr [center-end] var(--page-margin);
+    grid-template-columns: var(--page-margin) [center-start] 1fr [center-end] var(
+        --page-margin
+      );
   }
 
   .Section-1 > * {
@@ -163,9 +240,13 @@ input[type="checkbox"] {
   }
 }
 
-@media (max-width: 370px) {
+@media (max-width: 500px) {
   html {
     font-size: 100%;
+  }
+  .BottomFooter {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
   .Card {
     min-width: 21.4rem;
@@ -174,6 +255,16 @@ input[type="checkbox"] {
   .Content-container {
     max-width: 20.8rem;
   }
+  /* card history styles */
+  /* .Transactions-list {
+    height: 20rem;
+  }
+  .Transactions-list-container {
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    max-height: 14.5rem;
+  } */
+  /* ends here */
 }
 
 @media (max-width: 320px) {
@@ -211,7 +302,7 @@ input[type="checkbox"] {
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  box-shadow: 3px 0px 20px rgb(0,0,0, 0.15);
+  box-shadow: 3px 0px 20px rgb(0, 0, 0, 0.15);
 }
 
 @media only screen and (min-width: 576px) {
@@ -220,4 +311,3 @@ input[type="checkbox"] {
     height: 3.5rem;
   }
 }
-

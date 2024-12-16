@@ -1,8 +1,10 @@
+// const flowbite = require("flowbite-react/tailwind");
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    // flowbite.content(),
   ],
   theme: {
     extend: {
@@ -14,6 +16,7 @@ export default {
       },
       backgroundImage: {
         redGradient: 'linear-gradient(45deg, #ff7f7f, #9b2687, #ff4d4d, #ff0000, #9b2687, #da322a)',
+        blackGradient: 'linear-gradient(45deg, #000000, #4c4e4e)',
       },
       zIndex: {
         '60': '60',
@@ -22,5 +25,7 @@ export default {
       }
     },
   },
-  plugins: [],
+  // plugins: [
+  //   flowbite.plugin(),
+  // ],
 }

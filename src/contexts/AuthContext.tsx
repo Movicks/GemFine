@@ -1,17 +1,26 @@
 // Importing necessary modules and hooks from React and other libraries
-import React, { createContext, useEffect, useReducer, ReactNode, useContext } from "react";
+import React, {
+  createContext,
+  useEffect,
+  useReducer,
+  ReactNode,
+  useContext,
+} from "react";
 import Cookies from "js-cookie";
-import { login as loginService, register as registerService } from '../services/AuthServices';
+import {
+  login as loginService,
+  register as registerService,
+} from "../services/AuthServices";
 
 // Defining the shape (structure) of the authentication state
 interface AuthState {
-  user: any | null;          // `user` holds user data, initially it's null
+  user: any | null; // `user` holds user data, initially it's null
   accessToken: string | null; // `accessToken` holds the token, initially null
 }
 
 // Defining the structure of actions that can be dispatched to modify the state
 interface AuthAction {
-  type: string;  // The type of action, e.g., 'SET_AUTH', 'LOGOUT'
+  type: string; // The type of action, e.g., 'SET_AUTH', 'LOGOUT'
   payload?: any; // The data that comes with the action, optional
 }
 
@@ -19,16 +28,25 @@ interface AuthAction {
 interface AuthContextProps {
   state: AuthState; // The current state of authentication
   dispatch: React.Dispatch<AuthAction>; // Function to dispatch actions
-  login: (email: string, password: string, rememberMe: boolean) => Promise<void>; // Function to log in
-  register: (email: string, password: string, otherData: any, rememberMe: boolean) => Promise<void>; // Function to register
+  login: (
+    email: string,
+    password: string,
+    rememberMe: boolean,
+  ) => Promise<void>; // Function to log in
+  register: (
+    email: string,
+    password: string,
+    otherData: any,
+    rememberMe: boolean,
+  ) => Promise<void>; // Function to register
   logout: () => void; // Function to log out
   isAuthenticated: boolean; // A boolean to check if the user is authenticated
 }
 
 // The initial state before any action is taken
 const initialState: AuthState = {
-  user: null,         // No user is logged in initially
-  accessToken: null,  // No access token initially
+  user: null, // No user is logged in initially
+  accessToken: null, // No access token initially
 };
 
 // Defining action types as constants to avoid typos
@@ -54,7 +72,7 @@ const authReducer = (state: AuthState, action: AuthAction): AuthState => {
 
       // Save the refresh token in cookies for secure and long-term storage
       Cookies.set("refreshToken", action.payload.refreshToken, {
-        secure: true,     // Ensures the cookie is sent over HTTPS only
+        secure: true, // Ensures the cookie is sent over HTTPS only
         sameSite: "strict", // Prevents the cookie from being sent in cross-site requests
       });
 
@@ -89,7 +107,9 @@ const authReducer = (state: AuthState, action: AuthAction): AuthState => {
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 // The provider component that will wrap the app or parts of it
-export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   // Using the reducer to manage the authentication state
   const [state, dispatch] = useReducer(authReducer, initialState);
 
@@ -99,29 +119,38 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, []);
 
   // Function to log in the user
-  const login = async (email: string, password: string, rememberMe: boolean) => {
+  const login = async (
+    email: string,
+    password: string,
+    rememberMe: boolean,
+  ) => {
     const data = await loginService(email, password); // Call the login service to get user data
     dispatch({
       type: SET_AUTH, // Dispatch an action to set the authentication data
       payload: {
-        user: data.user,             // User information
+        user: data.user, // User information
         accessToken: data.accessToken, // Access token
         refreshToken: data.refreshToken, // Refresh token
-        rememberMe,                    // Whether to remember the user
+        rememberMe, // Whether to remember the user
       },
     });
   };
 
   // Function to register a new user
-  const register = async (email: string, password: string, otherData: any, rememberMe: boolean) => {
+  const register = async (
+    email: string,
+    password: string,
+    otherData: any,
+    rememberMe: boolean,
+  ) => {
     const data = await registerService(email, password, otherData); // Call the register service
     dispatch({
       type: SET_AUTH, // Dispatch an action to set the authentication data
       payload: {
-        user: data.user,             // User information
+        user: data.user, // User information
         accessToken: data.accessToken, // Access token
         refreshToken: data.refreshToken, // Refresh token
-        rememberMe,                    // Whether to remember the user
+        rememberMe, // Whether to remember the user
       },
     });
   };
@@ -136,7 +165,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   // Provide the state and functions to the rest of the app
   return (
-    <AuthContext.Provider value={{ state, dispatch, login, register, logout, isAuthenticated }}>
+    <AuthContext.Provider
+      value={{ state, dispatch, login, register, logout, isAuthenticated }}
+    >
       {children} {/* Render the child components wrapped by this provider */}
     </AuthContext.Provider>
   );
