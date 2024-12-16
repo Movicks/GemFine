@@ -1,12 +1,8 @@
-import React, {  } from 'react';
-import Loginfields from '../../components/authinputs/loginfields/LoginFields';
-
+import React from "react";
+import Loginfields from "../../components/authinputs/loginfields/LoginFields";
 
 const Login: React.FC = () => {
-
-  return (
-    <Loginfields/>
-  );
+  return <Loginfields />;
 };
 
 export default Login;
